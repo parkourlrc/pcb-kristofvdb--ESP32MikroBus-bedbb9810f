@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "ESP32C6MikroBus")
-		(date "2024-12-08")
-		(rev "v1.0")
+		(date "2024-12-22")
+		(rev "v1.1")
 		(company "(C) Tecnova BV")
 	)
 	(lib_symbols
@@ -3906,7 +3906,7 @@
 					(hide yes)
 				)
 			)
-			(property "Footprint" "tecnova:CON_HDR_MIKROBUS_SOCKET_TH"
+			(property "Footprint" "CON_HDR_MIKROBUS_SOCKET_TH"
 				(at 17.78 12.7 0)
 				(effects
 					(font
@@ -6429,6 +6429,25 @@
 		)
 		(uuid "feea845d-cc19-4ccf-a4c1-71b4e7cbc97f")
 	)
+	(text_box "gpio9 low => USB serial boot\nIO4+IO5 : JTAG mode: N/A"
+		(exclude_from_sim no)
+		(at 126.492 18.542 0)
+		(size 31.75 5.08)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "3a45afdb-65f8-4acb-bb50-66cb34bf40b3")
+	)
 	(text "uP"
 		(exclude_from_sim no)
 		(at 33.528 21.844 0)
@@ -6481,17 +6500,6 @@
 		)
 		(uuid "ab98a50d-5ead-4ae9-9dff-d0e2201196c1")
 	)
-	(text "mtms (IO4)/mtdi(IO5) zijn strapping pins en bepalen jtag mode (n/a)\n\n"
-		(exclude_from_sim no)
-		(at 69.342 6.096 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b4841462-5e03-4495-a131-b1851c35db8e")
-	)
 	(text "USB\n"
 		(exclude_from_sim no)
 		(at 207.772 21.59 0)
@@ -6505,9 +6513,9 @@
 		)
 		(uuid "b6402bd9-0740-4f02-a2e5-9a999b0d8aac")
 	)
-	(text "gpio9 laag trekken is USB boot\n"
+	(text "Strapping Pins"
 		(exclude_from_sim no)
-		(at 69.088 0.254 0)
+		(at 127 17.78 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6515,17 +6523,6 @@
 			(justify left bottom)
 		)
 		(uuid "c3bc5909-1ad3-42b9-a74f-06e0ede5b08e")
-	)
-	(text "C6: GP12 D- / 13 d+"
-		(exclude_from_sim no)
-		(at 95.758 18.288 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "cbe6b052-f364-4dd9-87e4-32e46332e057")
 	)
 	(label "SPARE5"
 		(at 118.11 101.6 0)
@@ -8878,7 +8875,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4a07599f-dba3-4867-8e40-854c02a72902")
 		(property "Reference" "R8"
@@ -8890,7 +8887,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "68r"
+		(property "Value" "100R"
 			(at 143.51 134.62 0)
 			(effects
 				(font
@@ -10015,7 +10012,7 @@
 		(fields_autoplaced yes)
 		(uuid "8f8d3e2e-3117-465f-9f28-34aa61938303")
 		(property "Reference" "R7"
-			(at 53.34 130.81 0)
+			(at 53.34 130.8099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10023,8 +10020,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "68R"
-			(at 53.34 133.35 0)
+		(property "Value" "100R"
+			(at 53.34 133.3499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10218,7 +10215,7 @@
 		(fields_autoplaced yes)
 		(uuid "98f75e49-5049-4ce2-8831-7a66b236ae85")
 		(property "Reference" "C3"
-			(at 58.42 93.98 0)
+			(at 58.42 93.9799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10226,8 +10223,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
-			(at 58.42 96.52 0)
+		(property "Value" "100nF"
+			(at 58.42 96.5199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
