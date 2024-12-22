@@ -1,0 +1,60 @@
+esphome:
+  name: esp32mikrobus
+  friendly_name: ESP32MikroBus
+
+esp32:
+  board: esp32-c6-devkitm-1
+  variant: esp32c6
+  framework:
+    type: esp-idf
+    sdkconfig_options:
+      CONFIG_ESPTOOLPY_FLASHSIZE_4MB: y
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "r2FSW0ifILkYfs/llOAqNMDmuK/nOWn8v5tZg8rFsIE="
+
+ota:
+  - platform: esphome
+    password: "702d7f14e3263eead9a483ef7d8d7e9f"
+
+wifi:
+  ssid: !secret ssid
+  password: !secret password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "ESP32MikroBus Fallback Hotspot"
+    password: "GIgEUTbBlCdq"
+
+captive_portal:
+
+light:
+  - platform: status_led
+    name: "Switch state"
+    pin: GPIO2
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: true
+  id: bus_a
+
+# Example with RTD click
+spi:
+  miso_pin: GPIO8
+  mosi_pin: GPIO1
+  clk_pin: GPIO10
+
+sensor:
+  - platform: max31865
+    name: "Office Temperature"
+    cs_pin: GPIO11
+    reference_resistance: 470 Ω
+    rtd_nominal_resistance: 100 Ω
+    rtd_wires: 2
+    update_interval: 1s
